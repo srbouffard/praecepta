@@ -1,0 +1,45 @@
+name: Build Vale Package
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch: # allow manual runs
+
+jobs:
+  build-package:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v5.0.0
+
+      - name: Replace symlinked .vale.ini with real file
+        run: |
+          if [ -L .vale.ini ]; then
+            echo "Replacing symlinked .vale.ini with a real file..."
+            cp --remove-destination vale.ini .vale.ini
+          fi
+          rm -f vale.ini
+
+      - name: Strip unneeded files
+        run: |
+          find . -maxdepth 1 \
+            ! -name 'styles' \
+            ! -name '.vale.ini' \
+            ! -name '.' \
+            -exec rm -rf {} +
+
+      - name: Create Vale package zip
+        run: |
+          PACKAGE_NAME="praecepta-latest.zip"
+          zip -r "$PACKAGE_NAME" .vale.ini styles
+          echo "PACKAGE_NAME=$PACKAGE_NAME" >> $GITHUB_ENV
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: latest
+          name: Praecepta Vale Package (latest)
+          files: ${{ env.PACKAGE_NAME }}
+          overwrite: true 
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
