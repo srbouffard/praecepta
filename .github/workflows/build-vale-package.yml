@@ -40,6 +40,6 @@ jobs:
           tag_name: latest
           name: Praecepta Vale Package (latest)
           files: ${{ env.PACKAGE_NAME }}
-          overwrite: true 
+          make_latest: true 
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
