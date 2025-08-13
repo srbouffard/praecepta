@@ -30,8 +30,13 @@ jobs:
 
       - name: Create Vale package zip
         run: |
-          PACKAGE_NAME="praecepta-latest.zip"
-          zip -r "$PACKAGE_NAME" .vale.ini styles
+          PACKAGE_DIR="praecepta"
+          PACKAGE_NAME="praecepta.zip"
+
+          mkdir "$PACKAGE_DIR"
+          mv .vale.ini styles "$PACKAGE_DIR"/
+
+          zip -r "$PACKAGE_NAME" "$PACKAGE_DIR"
           echo "PACKAGE_NAME=$PACKAGE_NAME" >> $GITHUB_ENV
 
       - name: Create GitHub Release
