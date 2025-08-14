@@ -20,14 +20,6 @@ jobs:
           fi
           rm -f vale.ini
 
-      - name: Strip unneeded files
-        run: |
-          find . -maxdepth 1 \
-            ! -name 'styles' \
-            ! -name '.vale.ini' \
-            ! -name '.' \
-            -exec rm -rf {} +
-
       - name: Create Vale package zip
         run: |
           PACKAGE_DIR="praecepta"
