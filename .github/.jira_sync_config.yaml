@@ -4,7 +4,10 @@ settings:
   components:
     - Style Guide
   labels:
-    - backlog
+    - "Type: documentation"
+    - "Type: enhancement"
+    - "Type: improvement"
+    - "Type: feature"
   status_mapping:
     opened: Untriaged
     closed: done
@@ -25,4 +28,5 @@ settings:
     "Type: documentation": Task
     "Type: enhancement": Task
     "Type: improvement": Task
+    "Type: feature": Task
     "Type: question": Spike
