@@ -116,14 +116,38 @@ rules:
   #       expect:
   #         triggers:
   #         severity:
-  # 006-Contractions-forbidden:
-  #   cases:
-  #     - id: valid
-  #       filetypes: [md, rst]
-  #       content:
-  #       expect:
-  #         triggers:
-  #         severity:
+  006-Contractions-forbidden:
+    cases:
+      - id: contractions-forbidden
+        filetypes: [md, rst]
+        content: |
+          This ain't a sentence that you want to read in documentation.
+          How'd you feel yesterday?
+          How'll you feel tomorrow?
+          I'd expect that this sentence will not pass quality checks.
+          Something's off with this sentence.
+          This sentence mayn't pass inspection.
+          Our checks may've backfired.
+          This sentence mightn't pass inspection.
+          Our checks might've backfired.
+          We're gonna have to change some sentences.
+          We gotta make changes to the documentation.
+          We will make the changes at 10 o'clock.
+        expect:
+          triggers:
+            - ain't
+            - How'd
+            - How'll
+            - I'd
+            - Something's
+            - mayn't
+            - may've
+            - mightn't
+            - might've
+            - gonna
+            - gotta
+            - o'clock
+          severity: warning
   # 007-Headings-sentence-case:
   #   cases:
   #     - id: valid
