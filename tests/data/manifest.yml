@@ -294,15 +294,15 @@ rules:
   # - Set VALE_ENFORCE_COVERAGE=1 to require every style rule appear here.
 
   # 017 is out of sequence because the content is long.
-  017-Avoid-long-code-blocks:
+  017a-Suggest-code-over-25-lines:
     cases:
-      - id: long-code-warning-md
+      - id: long-code-suggestion-md
         filetypes: [md]
         content: |
-          40 lines is acceptable:
+          25 lines is acceptable:
 
           ```
-          Line 01 of 40
+          Line 01 of 25
           Line 02
           Line 03
           Line 04
@@ -327,27 +327,12 @@ rules:
           Line 23
           Line 24
           Line 25
-          Line 26
-          Line 27
-          Line 28
-          Line 29
-          Line 30
-          Line 31
-          Line 32
-          Line 33
-          Line 34
-          Line 35
-          Line 36
-          Line 37
-          Line 38
-          Line 39
-          Line 40
           ```
 
-          But 41 lines is NOT acceptable:
+          But 26 lines is NOT acceptable:
 
           ```
-          Line 01 of 41
+          Line 01 of 26
           Line 02
 
           Line 04
@@ -373,21 +358,6 @@ rules:
           Line 24
           Line 25
           Line 26
-          Line 27
-          Line 28
-          Line 29
-          Line 30
-          Line 31
-          Line 32
-          Line 33
-          Line 34
-          Line 35
-          Line 36
-          Line 37
-          Line 38
-          Line 39
-          Line 40
-          Line 41
           ```
 
           This text is outside the code block.
@@ -395,7 +365,7 @@ rules:
           triggers:
             - |-  # |- because we don't want the newline at the end.
               ```
-              Line 01 of 41
+              Line 01 of 26
               Line 02
 
               Line 04
@@ -421,30 +391,15 @@ rules:
               Line 24
               Line 25
               Line 26
-              Line 27
-              Line 28
-              Line 29
-              Line 30
-              Line 31
-              Line 32
-              Line 33
-              Line 34
-              Line 35
-              Line 36
-              Line 37
-              Line 38
-              Line 39
-              Line 40
-              Line 41
               ```
-          severity: warning
-      - id: long-code-warning-md-lang
+          severity: suggestion
+      - id: long-code-suggestion-md-lang
         filetypes: [md]
         content: |
-          40 lines is acceptable:
+          25 lines is acceptable:
 
           ```text
-          Line 01 of 40
+          Line 01 of 25
           Line 02
           Line 03
           Line 04
@@ -469,27 +424,12 @@ rules:
           Line 23
           Line 24
           Line 25
-          Line 26
-          Line 27
-          Line 28
-          Line 29
-          Line 30
-          Line 31
-          Line 32
-          Line 33
-          Line 34
-          Line 35
-          Line 36
-          Line 37
-          Line 38
-          Line 39
-          Line 40
           ```
 
-          But 41 lines is NOT acceptable:
+          But 26 lines is NOT acceptable:
 
           ```text
-          Line 01 of 41
+          Line 01 of 26
           Line 02
 
           Line 04
@@ -515,21 +455,6 @@ rules:
           Line 24
           Line 25
           Line 26
-          Line 27
-          Line 28
-          Line 29
-          Line 30
-          Line 31
-          Line 32
-          Line 33
-          Line 34
-          Line 35
-          Line 36
-          Line 37
-          Line 38
-          Line 39
-          Line 40
-          Line 41
           ```
 
           This text is outside the code block.
@@ -537,7 +462,7 @@ rules:
           triggers:
             - |-  # |- because we don't want the newline at the end.
               ```text
-              Line 01 of 41
+              Line 01 of 26
               Line 02
 
               Line 04
@@ -563,31 +488,17 @@ rules:
               Line 24
               Line 25
               Line 26
-              Line 27
-              Line 28
-              Line 29
-              Line 30
-              Line 31
-              Line 32
-              Line 33
-              Line 34
-              Line 35
-              Line 36
-              Line 37
-              Line 38
-              Line 39
-              Line 40
-              Line 41
               ```
-          severity: warning
-      - id: long-code-warning-myst
+          severity: suggestion
+      - id: long-code-suggestion-myst
         filetypes: [md]
         content: |
-          40 lines is acceptable:
+          25 lines is acceptable:
 
           ```{code} text
           :foo: bar
-          Line 01 of 40
+
+          Line 01 of 25
           Line 02
           Line 03
           Line 04
@@ -612,28 +523,14 @@ rules:
           Line 23
           Line 24
           Line 25
-          Line 26
-          Line 27
-          Line 28
-          Line 29
-          Line 30
-          Line 31
-          Line 32
-          Line 33
-          Line 34
-          Line 35
-          Line 36
-          Line 37
-          Line 38
-          Line 39
-          Line 40
           ```
 
-          But 41 lines is NOT acceptable:
+          But 26 lines is NOT acceptable:
 
           ```{code} text
           :foo: bar
-          Line 01 of 41
+
+          Line 01 of 26
           Line 02
 
           Line 04
@@ -659,21 +556,6 @@ rules:
           Line 24
           Line 25
           Line 26
-          Line 27
-          Line 28
-          Line 29
-          Line 30
-          Line 31
-          Line 32
-          Line 33
-          Line 34
-          Line 35
-          Line 36
-          Line 37
-          Line 38
-          Line 39
-          Line 40
-          Line 41
           ```
 
           This text is outside the code block.
@@ -683,7 +565,368 @@ rules:
           ````{tab-set}
 
           ```{tab-item} Tab 1
-          Line 01 of 41
+          Line 01 of 26
+          Line 02
+          Line 03
+          Line 04
+          Line 05
+          Line 06
+          Line 07
+          Line 08
+          Line 09
+          Line 10
+          Line 11
+          Line 12
+          Line 13
+          Line 14
+          Line 15
+          Line 16
+          Line 17
+          Line 18
+          Line 19
+          Line 20
+          Line 21
+          Line 22
+          Line 23
+          Line 24
+          Line 25
+          Line 26
+          ```
+
+          ````
+        expect:
+          triggers:
+            - |-  # |- because we don't want the newline at the end.
+              ```{code} text
+              :foo: bar
+
+              Line 01 of 26
+              Line 02
+
+              Line 04
+
+
+              Line 07
+              Line 08
+              Line 09
+              Line 10
+              Line 11
+              Line 12
+              Line 13
+              Line 14
+              Line 15
+              Line 16
+              Line 17
+              Line 18
+              Line 19
+              Line 20
+              Line 21
+              Line 22
+              Line 23
+              Line 24
+              Line 25
+              Line 26
+              ```
+          severity: suggestion
+      - id: long-code-suggestion-rst-colons
+        filetypes: [rst]
+        content: |
+          25 lines is acceptable::
+
+             Line 01 of 25
+             Line 02
+             Line 03
+             Line 04
+             Line 05
+             Line 06
+             Line 07
+             Line 08
+             Line 09
+             Line 10
+             Line 11
+             Line 12
+             Line 13
+             Line 14
+             Line 15
+             Line 16
+             Line 17
+             Line 18
+             Line 19
+             Line 20
+             Line 21
+             Line 22
+             Line 23
+             Line 24
+             Line 25
+
+          But 26 lines is NOT acceptable::
+
+             Line 01 of 26
+             Line 02
+
+             Line 04
+
+
+             Line 07
+             Line 08
+             Line 09
+             Line 10
+             Line 11
+             Line 12
+             Line 13
+             Line 14
+             Line 15
+             Line 16
+             Line 17
+             Line 18
+             Line 19
+             Line 20
+             Line 21
+             Line 22
+             Line 23
+             Line 24
+             Line 25
+             Line 26
+
+          This text is outside the code block.
+        expect:
+          triggers:
+            - |
+              ::
+
+                 Line 01 of 26
+                 Line 02
+
+                 Line 04
+
+
+                 Line 07
+                 Line 08
+                 Line 09
+                 Line 10
+                 Line 11
+                 Line 12
+                 Line 13
+                 Line 14
+                 Line 15
+                 Line 16
+                 Line 17
+                 Line 18
+                 Line 19
+                 Line 20
+                 Line 21
+                 Line 22
+                 Line 23
+                 Line 24
+                 Line 25
+                 Line 26
+          severity: suggestion
+      - id: long-code-suggestion-rst-lang
+        filetypes: [rst]
+        content: |
+          25 lines is acceptable.
+
+          .. code:: text
+
+             Line 01 of 25
+             Line 02
+             Line 03
+             Line 04
+             Line 05
+             Line 06
+             Line 07
+             Line 08
+             Line 09
+             Line 10
+             Line 11
+             Line 12
+             Line 13
+             Line 14
+             Line 15
+             Line 16
+             Line 17
+             Line 18
+             Line 19
+             Line 20
+             Line 21
+             Line 22
+             Line 23
+             Line 24
+             Line 25
+
+          But 26 lines is NOT acceptable.
+
+          .. code:: text
+
+             Line 01 of 26
+             Line 02
+
+             Line 04
+
+
+             Line 07
+             Line 08
+             Line 09
+             Line 10
+             Line 11
+             Line 12
+             Line 13
+             Line 14
+             Line 15
+             Line 16
+             Line 17
+             Line 18
+             Line 19
+             Line 20
+             Line 21
+             Line 22
+             Line 23
+             Line 24
+             Line 25
+             Line 26
+
+          This text is outside the code block.
+        expect:
+          triggers:
+            - |
+              .. code:: text
+
+                 Line 01 of 26
+                 Line 02
+
+                 Line 04
+
+
+                 Line 07
+                 Line 08
+                 Line 09
+                 Line 10
+                 Line 11
+                 Line 12
+                 Line 13
+                 Line 14
+                 Line 15
+                 Line 16
+                 Line 17
+                 Line 18
+                 Line 19
+                 Line 20
+                 Line 21
+                 Line 22
+                 Line 23
+                 Line 24
+                 Line 25
+                 Line 26
+          severity: suggestion
+      - id: long-code-suggestion-rst-option
+        filetypes: [rst]
+        content: |
+          25 lines is acceptable.
+
+          .. code::
+             :foo:
+
+             Line 01 of 25
+             Line 02
+             Line 03
+             Line 04
+             Line 05
+             Line 06
+             Line 07
+             Line 08
+             Line 09
+             Line 10
+             Line 11
+             Line 12
+             Line 13
+             Line 14
+             Line 15
+             Line 16
+             Line 17
+             Line 18
+             Line 19
+             Line 20
+             Line 21
+             Line 22
+             Line 23
+             Line 24
+             Line 25
+
+          But 26 lines is NOT acceptable.
+
+          .. code::
+             :foo:
+
+             Line 01 of 26
+             Line 02
+
+             Line 04
+
+
+             Line 07
+             Line 08
+             Line 09
+             Line 10
+             Line 11
+             Line 12
+             Line 13
+             Line 14
+             Line 15
+             Line 16
+             Line 17
+             Line 18
+             Line 19
+             Line 20
+             Line 21
+             Line 22
+             Line 23
+             Line 24
+             Line 25
+             Line 26
+
+          This text is outside the code block.
+        expect:
+          triggers:
+            - |
+              .. code::
+                 :foo:
+
+                 Line 01 of 26
+                 Line 02
+
+                 Line 04
+
+
+                 Line 07
+                 Line 08
+                 Line 09
+                 Line 10
+                 Line 11
+                 Line 12
+                 Line 13
+                 Line 14
+                 Line 15
+                 Line 16
+                 Line 17
+                 Line 18
+                 Line 19
+                 Line 20
+                 Line 21
+                 Line 22
+                 Line 23
+                 Line 24
+                 Line 25
+                 Line 26
+          severity: suggestion
+  017b-Warn-code-over-35-lines:
+    cases:
+      - id: long-code-warning-md
+        filetypes: [md]
+        content: |
+          35 lines is acceptable:
+
+          ```
+          Line 01 of 35
           Line 02
           Line 03
           Line 04
@@ -718,21 +961,55 @@ rules:
           Line 33
           Line 34
           Line 35
-          Line 36
-          Line 37
-          Line 38
-          Line 39
-          Line 40
-          Line 41
           ```
 
-          ````
+          But 36 lines is NOT acceptable:
+
+          ```
+          Line 01 of 36
+          Line 02
+
+          Line 04
+
+
+          Line 07
+          Line 08
+          Line 09
+          Line 10
+          Line 11
+          Line 12
+          Line 13
+          Line 14
+          Line 15
+          Line 16
+          Line 17
+          Line 18
+          Line 19
+          Line 20
+          Line 21
+          Line 22
+          Line 23
+          Line 24
+          Line 25
+          Line 26
+          Line 27
+          Line 28
+          Line 29
+          Line 30
+          Line 31
+          Line 32
+          Line 33
+          Line 34
+          Line 35
+          Line 36
+          ```
+
+          This text is outside the code block.
         expect:
           triggers:
             - |-  # |- because we don't want the newline at the end.
-              ```{code} text
-              :foo: bar
-              Line 01 of 41
+              ```
+              Line 01 of 36
               Line 02
 
               Line 04
@@ -768,19 +1045,408 @@ rules:
               Line 34
               Line 35
               Line 36
-              Line 37
-              Line 38
-              Line 39
-              Line 40
-              Line 41
+              ```
+          severity: warning
+      - id: long-code-warning-md-lang
+        filetypes: [md]
+        content: |
+          35 lines is acceptable:
+
+          ```text
+          Line 01 of 35
+          Line 02
+          Line 03
+          Line 04
+          Line 05
+          Line 06
+          Line 07
+          Line 08
+          Line 09
+          Line 10
+          Line 11
+          Line 12
+          Line 13
+          Line 14
+          Line 15
+          Line 16
+          Line 17
+          Line 18
+          Line 19
+          Line 20
+          Line 21
+          Line 22
+          Line 23
+          Line 24
+          Line 25
+          Line 26
+          Line 27
+          Line 28
+          Line 29
+          Line 30
+          Line 31
+          Line 32
+          Line 33
+          Line 34
+          Line 35
+          ```
+
+          But 36 lines is NOT acceptable:
+
+          ```text
+          Line 01 of 36
+          Line 02
+
+          Line 04
+
+
+          Line 07
+          Line 08
+          Line 09
+          Line 10
+          Line 11
+          Line 12
+          Line 13
+          Line 14
+          Line 15
+          Line 16
+          Line 17
+          Line 18
+          Line 19
+          Line 20
+          Line 21
+          Line 22
+          Line 23
+          Line 24
+          Line 25
+          Line 26
+          Line 27
+          Line 28
+          Line 29
+          Line 30
+          Line 31
+          Line 32
+          Line 33
+          Line 34
+          Line 35
+          Line 36
+          ```
+
+          This text is outside the code block.
+        expect:
+          triggers:
+            - |-  # |- because we don't want the newline at the end.
+              ```text
+              Line 01 of 36
+              Line 02
+
+              Line 04
+
+
+              Line 07
+              Line 08
+              Line 09
+              Line 10
+              Line 11
+              Line 12
+              Line 13
+              Line 14
+              Line 15
+              Line 16
+              Line 17
+              Line 18
+              Line 19
+              Line 20
+              Line 21
+              Line 22
+              Line 23
+              Line 24
+              Line 25
+              Line 26
+              Line 27
+              Line 28
+              Line 29
+              Line 30
+              Line 31
+              Line 32
+              Line 33
+              Line 34
+              Line 35
+              Line 36
+              ```
+          severity: warning
+      - id: long-code-warning-myst
+        filetypes: [md]
+        content: |
+          35 lines is acceptable:
+
+          ```{code} text
+          :foo: bar
+
+          Line 01 of 35
+          Line 02
+          Line 03
+          Line 04
+          Line 05
+          Line 06
+          Line 07
+          Line 08
+          Line 09
+          Line 10
+          Line 11
+          Line 12
+          Line 13
+          Line 14
+          Line 15
+          Line 16
+          Line 17
+          Line 18
+          Line 19
+          Line 20
+          Line 21
+          Line 22
+          Line 23
+          Line 24
+          Line 25
+          Line 26
+          Line 27
+          Line 28
+          Line 29
+          Line 30
+          Line 31
+          Line 32
+          Line 33
+          Line 34
+          Line 35
+          ```
+
+          But 36 lines is NOT acceptable:
+
+          ```{code} text
+          :foo: bar
+
+          Line 01 of 36
+          Line 02
+
+          Line 04
+
+
+          Line 07
+          Line 08
+          Line 09
+          Line 10
+          Line 11
+          Line 12
+          Line 13
+          Line 14
+          Line 15
+          Line 16
+          Line 17
+          Line 18
+          Line 19
+          Line 20
+          Line 21
+          Line 22
+          Line 23
+          Line 24
+          Line 25
+          Line 26
+          Line 27
+          Line 28
+          Line 29
+          Line 30
+          Line 31
+          Line 32
+          Line 33
+          Line 34
+          Line 35
+          Line 36
+          ```
+
+          This text is outside the code block.
+
+          A long unrelated directive is acceptable:
+
+          ````{tab-set}
+
+          ```{tab-item} Tab 1
+          Line 01 of 36
+          Line 02
+          Line 03
+          Line 04
+          Line 05
+          Line 06
+          Line 07
+          Line 08
+          Line 09
+          Line 10
+          Line 11
+          Line 12
+          Line 13
+          Line 14
+          Line 15
+          Line 16
+          Line 17
+          Line 18
+          Line 19
+          Line 20
+          Line 21
+          Line 22
+          Line 23
+          Line 24
+          Line 25
+          Line 26
+          Line 27
+          Line 28
+          Line 29
+          Line 30
+          Line 31
+          Line 32
+          Line 33
+          Line 34
+          Line 35
+          Line 36
+          ```
+
+          ````
+        expect:
+          triggers:
+            - |-  # |- because we don't want the newline at the end.
+              ```{code} text
+              :foo: bar
+
+              Line 01 of 36
+              Line 02
+
+              Line 04
+
+
+              Line 07
+              Line 08
+              Line 09
+              Line 10
+              Line 11
+              Line 12
+              Line 13
+              Line 14
+              Line 15
+              Line 16
+              Line 17
+              Line 18
+              Line 19
+              Line 20
+              Line 21
+              Line 22
+              Line 23
+              Line 24
+              Line 25
+              Line 26
+              Line 27
+              Line 28
+              Line 29
+              Line 30
+              Line 31
+              Line 32
+              Line 33
+              Line 34
+              Line 35
+              Line 36
+              ```
+          severity: warning
+      - id: long-code-warning-myst-no-nl-after-option
+        filetypes: [md]
+        content: |
+          No blank line after option:
+
+          ```{code} text
+          :foo: bar
+          Line 01 of 36
+          Line 02
+
+          Line 04
+
+
+          Line 07
+          Line 08
+          Line 09
+          Line 10
+          Line 11
+          Line 12
+          Line 13
+          Line 14
+          Line 15
+          Line 16
+          Line 17
+          Line 18
+          Line 19
+          Line 20
+          Line 21
+          Line 22
+          Line 23
+          Line 24
+          Line 25
+          Line 26
+          Line 27
+          Line 28
+          Line 29
+          Line 30
+          Line 31
+          Line 32
+          Line 33
+          Line 34
+          Line 35
+          Line 36
+          ```
+
+
+        expect:
+          triggers:
+            - |-  # |- because we don't want the newline at the end.
+              ```{code} text
+              :foo: bar
+              Line 01 of 36
+              Line 02
+
+              Line 04
+
+
+              Line 07
+              Line 08
+              Line 09
+              Line 10
+              Line 11
+              Line 12
+              Line 13
+              Line 14
+              Line 15
+              Line 16
+              Line 17
+              Line 18
+              Line 19
+              Line 20
+              Line 21
+              Line 22
+              Line 23
+              Line 24
+              Line 25
+              Line 26
+              Line 27
+              Line 28
+              Line 29
+              Line 30
+              Line 31
+              Line 32
+              Line 33
+              Line 34
+              Line 35
+              Line 36
               ```
           severity: warning
       - id: long-code-warning-rst-colons
         filetypes: [rst]
         content: |
-          40 lines is acceptable::
+          35 lines is acceptable::
 
-             Line 01 of 40
+             Line 01 of 35
              Line 02
              Line 03
              Line 04
@@ -815,15 +1481,10 @@ rules:
              Line 33
              Line 34
              Line 35
-             Line 36
-             Line 37
-             Line 38
-             Line 39
-             Line 40
 
-          But 41 lines is NOT acceptable::
+          But 36 lines is NOT acceptable::
 
-             Line 01 of 41
+             Line 01 of 36
              Line 02
 
              Line 04
@@ -859,11 +1520,6 @@ rules:
              Line 34
              Line 35
              Line 36
-             Line 37
-             Line 38
-             Line 39
-             Line 40
-             Line 41
 
           This text is outside the code block.
         expect:
@@ -871,7 +1527,7 @@ rules:
             - |
               ::
 
-                 Line 01 of 41
+                 Line 01 of 36
                  Line 02
 
                  Line 04
@@ -907,20 +1563,15 @@ rules:
                  Line 34
                  Line 35
                  Line 36
-                 Line 37
-                 Line 38
-                 Line 39
-                 Line 40
-                 Line 41
           severity: warning
       - id: long-code-warning-rst-lang
         filetypes: [rst]
         content: |
-          40 lines is acceptable.
+          35 lines is acceptable.
 
           .. code:: text
 
-             Line 01 of 40
+             Line 01 of 35
              Line 02
              Line 03
              Line 04
@@ -955,17 +1606,12 @@ rules:
              Line 33
              Line 34
              Line 35
-             Line 36
-             Line 37
-             Line 38
-             Line 39
-             Line 40
 
-          But 41 lines is NOT acceptable.
+          But 36 lines is NOT acceptable.
 
           .. code:: text
 
-             Line 01 of 41
+             Line 01 of 36
              Line 02
 
              Line 04
@@ -1001,11 +1647,6 @@ rules:
              Line 34
              Line 35
              Line 36
-             Line 37
-             Line 38
-             Line 39
-             Line 40
-             Line 41
 
           This text is outside the code block.
         expect:
@@ -1013,7 +1654,7 @@ rules:
             - |
               .. code:: text
 
-                 Line 01 of 41
+                 Line 01 of 36
                  Line 02
 
                  Line 04
@@ -1049,21 +1690,16 @@ rules:
                  Line 34
                  Line 35
                  Line 36
-                 Line 37
-                 Line 38
-                 Line 39
-                 Line 40
-                 Line 41
           severity: warning
       - id: long-code-warning-rst-option
         filetypes: [rst]
         content: |
-          40 lines is acceptable.
+          35 lines is acceptable.
 
           .. code::
              :foo:
 
-             Line 01 of 40
+             Line 01 of 35
              Line 02
              Line 03
              Line 04
@@ -1098,18 +1734,13 @@ rules:
              Line 33
              Line 34
              Line 35
-             Line 36
-             Line 37
-             Line 38
-             Line 39
-             Line 40
 
-          But 41 lines is NOT acceptable.
+          But 36 lines is NOT acceptable.
 
           .. code::
              :foo:
 
-             Line 01 of 41
+             Line 01 of 36
              Line 02
 
              Line 04
@@ -1145,11 +1776,6 @@ rules:
              Line 34
              Line 35
              Line 36
-             Line 37
-             Line 38
-             Line 39
-             Line 40
-             Line 41
 
           This text is outside the code block.
         expect:
@@ -1158,7 +1784,7 @@ rules:
               .. code::
                  :foo:
 
-                 Line 01 of 41
+                 Line 01 of 36
                  Line 02
 
                  Line 04
@@ -1194,9 +1820,4 @@ rules:
                  Line 34
                  Line 35
                  Line 36
-                 Line 37
-                 Line 38
-                 Line 39
-                 Line 40
-                 Line 41
           severity: warning
