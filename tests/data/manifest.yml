@@ -2092,3 +2092,49 @@ rules:
                  Line 35
                  Line 36
           severity: warning
+  026-hints-tips:
+    cases:
+      - id: valid
+        filetypes: [md, rst]
+        content: |
+          .. hint::
+              This is a reST hint.
+          .. tip::
+              This is a reST tip.
+          ```{hint}
+          This is a MyST hint.
+          ```
+          ```{tip}
+          This is a MyST tip.
+          ```
+          ````{hint}
+          This is a deeper MyST hint.
+          ````
+          ````{tip}
+          This is a deeper MyST tip.
+          ````
+          :::{hint}
+          This is a colon-fenced MyST hint.
+          :::
+          :::{tip}
+          This is a colon-fenced MyST tip.
+          :::
+          ::::{hint}
+          This is a deeper colon-fenced MyST hint.
+          ::::
+          ::::{tip}
+          This is a deeper colon-fenced MyST tip.
+          ::::
+        expect:
+          triggers:
+            - '.. hint::'
+            - '.. tip::'
+            - '```{hint}'
+            - '```{tip}'
+            - '````{hint}'
+            - '````{tip}'
+            - ':::{hint}'
+            - ':::{tip}'
+            - '::::{hint}'
+            - '::::{tip}'
+          severity: suggestion
