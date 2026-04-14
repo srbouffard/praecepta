@@ -416,14 +416,94 @@ rules:
                        let value = 10;  // Initialize value
           severity: suggestion
   # For 017, see the end of this file, as the content is long.
-  # 019-no-google-drive-images:
-  #   cases:
-  #     - id: valid
-  #       filetypes: [md, rst]
-  #       content:
-  #       expect:
-  #         triggers:
-  #         severity:
+  019-no-external-images:
+     cases:
+       - id: google-drive-md
+         filetypes: [md]
+         content: "![alt](https://drive.google.com/file/d/abc123)"
+         expect:
+           triggers: 
+             - "![alt](https://drive.google.com/file/d/abc123)"
+           severity: error
+       - id: google-drive-rst-image
+         filetypes: [rst]
+         content: ".. image:: https://drive.google.com/file/d/abc123"
+         expect:
+           triggers:
+             - ".. image:: https://drive.google.com/file/d/abc123"
+           severity: error
+       - id: google-drive-rst-figure
+         filetypes: [rst]
+         content: ".. figure:: https://drive.google.com/file/d/abc123"
+         expect:
+           triggers:
+             - ".. figure:: https://drive.google.com/file/d/abc123"
+           severity: error
+       - id: asset-manager-md
+         filetypes: [md]
+         content: "![alt](https://assets.ubuntu.com/v1/abc123)"
+         expect:
+           triggers:
+             - "![alt](https://assets.ubuntu.com/v1/abc123)"
+           severity: error
+       - id: asset-manager-rst-image
+         filetypes: [rst]
+         content: ".. image:: https://assets.ubuntu.com/v1/abc123"
+         expect:
+           triggers:
+             - ".. image:: https://assets.ubuntu.com/v1/abc123"
+           severity: error
+       - id: asset-manager-rst-figure
+         filetypes: [rst]
+         content: ".. figure:: https://assets.ubuntu.com/v1/abc123"
+         expect:
+           triggers:
+             - ".. figure:: https://assets.ubuntu.com/v1/abc123"
+           severity: error
+       - id: asset-manager-myst-backtick-image
+         filetypes: [md]
+         content: "```{image} https://assets.ubuntu.com/v1/abc123"
+         expect:
+           triggers:
+             - "{image} https://assets.ubuntu.com/v1/abc123"
+           severity: error
+       - id: asset-manager-myst-colon-image
+         filetypes: [md]
+         content: ":::{image} https://assets.ubuntu.com/v1/abc123"
+         expect:
+           triggers:
+             - "{image} https://assets.ubuntu.com/v1/abc123"
+           severity: error
+       - id: asset-manager-myst-backtick-figure
+         filetypes: [md]
+         content: "```{figure} https://assets.ubuntu.com/v1/abc123"
+         expect:
+           triggers:
+             - "{figure} https://assets.ubuntu.com/v1/abc123"
+           severity: error
+       - id: asset-manager-myst-colon-figure
+         filetypes: [md]
+         content: ":::{figure} https://assets.ubuntu.com/v1/abc123"
+         expect:
+           triggers:
+             - "{figure} https://assets.ubuntu.com/v1/abc123"
+           severity: error
+       - id: local-image-md
+         filetypes: [md]
+         content: "![alt](images/local-image.png)"
+         expect:
+           triggers: []
+       - id: local-image-rst
+         filetypes: [rst]
+         content: ".. image:: images/local-image.png"
+         expect:
+           triggers: []
+       - id: local-image-myst
+         filetypes: [md]
+         content: "```{image} images/local-image.png"
+         expect:
+           triggers: []
+      
   025a-latinisms-with-english-equivalents:
     cases:
       - id: latin-terms-with-substitutions
