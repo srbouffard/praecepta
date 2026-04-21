@@ -4,6 +4,7 @@
 
 extends: existence
 message: "Use descriptive link text instead of '%s' to improve accessibility."
+link: https://canonical-documentation-style-guide.readthedocs-hosted.com/
 link: https://docs.ubuntu.com/styleguide/en
 scope: raw
 nonword: true
@@ -12,5 +13,5 @@ level: warning
 tokens:
   - '\[[^\]]*\b(here|these|this|more|link)\b[^\]]*\]\([^\)]+\)'
   - '`[^`<]*\b(here|these|this|more|link)\b[^`<]*<[^>]+>`_'
-  - ':([^\s\n:]+:)*(doc|ref|any|download|reftype|class|func):`[^`]*\b(here|these|this|more|link)\b[^`]*`'
-  - '\{([^\}\s\n]+:)*(doc|ref|any|download|reftype|class|func)\}`[^`]*\b(here|these|this|more|link)\b[^`]*`' 
+  - ':([^\s\n:]+:)*(doc|ref|any|download|class|func):`[^`]*\b(here|these|this|more|link)\b[^`]*`'
+  - '\{([^\}\s\n]+:)*(doc|ref|any|download|class|func)\}`[^`]*\b(here|these|this|more|link)\b[^`]*`' 
