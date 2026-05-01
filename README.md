@@ -4,12 +4,11 @@ This repository contains the documentation and the Vale rules for the documentat
 
 The style guide itself is written in Markdown and contained in the `en` directory.
 
-It is published online at: [docs.ubuntu.com/styleguide/en](https://docs.ubuntu.com/styleguide/en)
+It is published online at: [docs.ubuntu.com/styleguide/en](https://canonical-documentation-style-guide.readthedocs-hosted.com/)
 
 ## The Vale rules
 
 The Vale linter operates from a series of rules. These are defined in individual YAML files, grouped into 'Styles'.
-This repository contains the Canonical set of rules, or the Canonical Style. 
 
 ### Manual check
 
@@ -34,7 +33,11 @@ Anyone is welcome to submit a PR to add additional rules. However, no additions 
 
 For a reference on rule syntax, see the Vale [documentation on Styles][Vale styles].
 
-If you are completely new to developing Vale rules, see this [introductory guide](https://github.com/canonical/documentation-style-guide/blob/8c7fee862b2258c692439ef430198e393bdc30c4/getting-started.md). 
+If you are completely new to developing Vale rules, see this [introductory guide](getting-started.md). 
+
+### Testing the rules
+
+This repo includes automated tests of the rules, which you can run locally, and which run in CI. See [Guidance for maintainers of the rules](HACKING.md).
 
 ### Using the rules
 
@@ -116,3 +119,31 @@ vale docs/test.md
 
 The published Vale GitHub action ignores suggestions and turns off some features which are likely to cause a lot of noise if run in their default state. A lot of things boil down to spellings. For example, the rule which checks for sentence case in headings doesn't know that SATA is an initialism by default, so if you include it, completely reasonably, in a heading it will be marked as an error. You may wish to turn this back on **if** you have a fairly complete vocabulary list.
 The example `vale.ini` file enumerates all the current rules and explicitly sets their error levels. This makes it simple to turn rules on or off, or add the spelling options, by simply making a copy of this file, editing it and including it in the repository where the checks are run. 
+
+## Documentation
+
+The Style Guide documentation provides style guidance for technical documentation producded for Canonical products:
+
+* [Canonical's documentation style guide](https://canonical-documentation-style-guide.readthedocs-hosted.com/)
+
+### Building the documentation
+
+The documentation can be built locally by running the following command from the `docs/` directory:
+
+```
+make run
+```
+
+If the build is successful, a local preview will be provided.
+
+### Contributing to the documentation
+
+When contributing changes to the documentation, please run the linting targets:
+
+```
+make spelling
+make lint-md
+make linkcheck
+```
+
+These checks are required for landing any changes to the documentation.

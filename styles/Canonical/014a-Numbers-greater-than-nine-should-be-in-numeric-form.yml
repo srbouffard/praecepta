@@ -1,6 +1,6 @@
 extends: existence
 message: Write numbers greater than nine in numeric form - (%s)
-link: https://docs.ubuntu.com/styleguide/en#numbers
+link: https://canonical-documentation-style-guide.readthedocs-hosted.com/
 scope:
   - heading
   - list
@@ -8,7 +8,7 @@ scope:
   - table.header
   - table.cell
 ignorecase: true
-level: warning
+level: suggestion
 tokens:
   - ten
   - eleven

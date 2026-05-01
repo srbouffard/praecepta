@@ -1,5 +1,6 @@
 extends: existence
 message: "Replace '%s' with an inclusive term"
+link: https://canonical-documentation-style-guide.readthedocs-hosted.com/
 level: error
 scope:
   - sentence
@@ -14,7 +15,7 @@ tokens:
   - black( )?hats?
   - white( )?hats?
   - illegal characters?
-  - masters?
+  - (?<!\/)masters?
   - (?<!jenkins\-)slaves?
   - chairman
   - foreman

@@ -2,14 +2,13 @@
 
 extends: existence
 message: "'%s' should have one space."
-link: 
+link: https://canonical-documentation-style-guide.readthedocs-hosted.com/
 level: warning
 scope:
-  - sentence
-  - list
+  - raw
 nonword: true
 tokens:
-  - '[a-z][.?!] {2,}[A-Z]'
+  - '[.?!] {2,}$'
 
 # Reasoning:
 # We appreciate that you may have been taught to put two spaces after a 
